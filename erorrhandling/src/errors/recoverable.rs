@@ -3,9 +3,7 @@ use std::io::{ ErrorKind,Read };
 use std::io;
 
 pub fn matches(n:i64)->i64{
-
     let f = File::open("yello.txt");
-
     let f = match f {
         Ok (file)  => file,
         Err(erorr) => match erorr.kind() {
@@ -18,7 +16,6 @@ pub fn matches(n:i64)->i64{
             }
         }
     };
-
     69
 }
 
