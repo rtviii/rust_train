@@ -1,3 +1,6 @@
+#![allow(unused_imports)]
+#![allow(unused_variables)]
+#![allow(dead_code)]
 pub mod generics;
 pub mod traitparameters;
 pub mod conditional_impls;
@@ -82,14 +85,15 @@ impl <U,W> DoublyPt <U,W> {
 
 
 fn main() {
-    let p  = Point    { x    : 5, y: 10 };
-    let tt = DoublyPt { x    : 4, y :2}  ;
-    let r  = tt      .  mixup(    p)     ;
+    // let p  = Point    { x    : 5, y: 10 };
+    // let tt = DoublyPt { x    : 4, y :2}  ;
+    // let r  = tt      .  mixup(    p)     ;
 
-    println!("r.x = {}", r.x());
-    println!("r.y= {}", r.y());
+    // println!("r.x = {}", r.x());
+    // println!("r.y= {}", r.y());
 
 
-    traitparameters::returns_summarizable();
+    // traitparameters::returns_summarizable();
 
+    lifetimes::driver();
 }

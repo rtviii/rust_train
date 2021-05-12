@@ -5,7 +5,7 @@ pub trait Summary{
         String::from("Read more")
     }
     // another interface to implement
-    fn createSummary (&self) -> ();
+    fn create_summary (&self) -> ();
 }
 
 pub fn noon(){
@@ -33,7 +33,7 @@ impl Summary for NewsArticle{
     fn summarize(&self)->String{
         format!("{}, by {} ({})", self.headline, self.author,self.location)
     }
-    fn createSummary(&self){
+    fn create_summary(&self){
     }
 }
 
@@ -41,7 +41,7 @@ impl Summary for Tweet{
     fn summarize(&self)->String{
         format!("{} : {}", self.content, self.username)
     }
-    fn createSummary(&self){
+    fn create_summary(&self){
     }
 }
 
