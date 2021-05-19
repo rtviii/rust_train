@@ -19,12 +19,24 @@ pub fn run(conf:Config)->Result<(), Box<dyn Error>>{
 }
 
 impl Config{
-pub fn new(args:&[String]) -> Result<Config,&str>{
-    if args.len() < 3 {
-        return Err("not yet")
-    }
-    let query    = args[1].clone();
-    let filename = args[2].clone();
+// pub fn new(args:&[String]) -> Result<Config,&str>{
+pub fn new(mut args: env::Args) -> Result<Config,&'static str>{
+    // if args.len() < 3 {
+    //     return Err("not yet")
+    // }
+
+    args.next();
+
+
+    let query    = match args.next(){
+        Some(arg) => arg,
+        None => return Err("didnt get a query string")
+    };
+    let filename = match args.next(){
+        Some(arg) => arg,
+        None => return Err("didnt get a filename string")
+    };
+
 
     let case_sensetive = env::var("CASE_INSENSETIVE").is_err();
 
@@ -47,30 +59,43 @@ pub struct Config {
     pub case_sensetive: bool
 }
 pub fn search<'a>(query:&str, contents:&'a str)-> Vec<&'a str>{
-    let mut results = Vec::new();
 
-    for line in contents.lines(){
-        if line.contains(query){
-            results.push(line);
 
-        }
-    }
-    results
+    contents
+    .lines()
+    .filter(|line| line.contains(query))
+    .collect()
+
+    // contents.lines().collect()
+
+    // let mut results = Vec::new();
+
+    // for line in contents.lines(){
+    //     if line.contains(query){
+    //         results.push(line);
+
+    //     }
+    // }
+    // results
 }
 pub fn search_case_insensetive<'a>
 (   query:&str,
     contents:&'a str
 )-> Vec<&'a str>{
     let query       = query.to_lowercase();
-    let mut results = Vec::new();
+    // let mut results = Vec::new();
 
-    for line in contents.lines(){
-        if line.to_lowercase().contains(&query){
-            results.push(line);
+    contents.lines()
+    .filter(|line| line.to_lowercase().contains(&query))
+    .collect()
 
-        }
-    }
-    results
+    // for line in contents.lines(){
+    //     if line.to_lowercase().contains(&query){
+    //         results.push(line);
+
+    //     }
+    // }
+    // results
 }
 
 
