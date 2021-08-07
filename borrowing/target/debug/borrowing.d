@@ -1,0 +1,1 @@
+/home/rxz/dev/rust_projects/borrowing/target/debug/borrowing: /home/rxz/dev/rust_projects/borrowing/src/main.rs /home/rxz/dev/rust_projects/borrowing/src/others/imp1.rs /home/rxz/dev/rust_projects/borrowing/src/others.rs

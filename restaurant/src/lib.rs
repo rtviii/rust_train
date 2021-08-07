@@ -6,6 +6,9 @@ pub use crate::front_of_house::serving;
 
 pub fn eat_at_restaurant() {
     
+
+    serving::deserve();
+
     hosting::add_to_waitlist();
     hosting::add_to_waitlist();
     hosting::add_to_waitlist();

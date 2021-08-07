@@ -1,0 +1,3 @@
+pub fn heytoyou(){
+	println!(":)");
+}
