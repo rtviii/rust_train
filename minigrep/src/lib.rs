@@ -39,13 +39,11 @@ pub fn new(mut args: env::Args) -> Result<Config,&'static str>{
 
 
     let case_sensetive = env::var("CASE_INSENSETIVE").is_err();
-
     if case_sensetive {
-
-    println!(" Inited with varialbe set <<<<<{}",case_sensetive);
-    }
+        println!(" Inited with varialbe set <<<<<{}",case_sensetive);
+        }
     else{
-            println!(" Inited with varialbe unset <<<<<{}",case_sensetive);
+        println!(" Inited with varialbe unset <<<<<{}",case_sensetive);
     }
 
     Ok(Config{query,filename, case_sensetive})
@@ -111,7 +109,6 @@ mod tests{
         Rust\nsafe, fast, productive.";
         assert_eq!(vec!["safe, fast, productive."], search(query, contents))
     }
-
     #[test]
         fn case_insensitive() {
         let query = "rUsT";
