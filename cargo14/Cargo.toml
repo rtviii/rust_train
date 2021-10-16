@@ -1,0 +1,13 @@
+[package]
+name    =  "cargo14"
+version =  "0.1.0"
+authors = ["rtviii <rtkushner@gmail.com>"]
+edition =  "2018"
+
+[dependencies]
+
+[profile.dev]
+opt-level = 1
+
+[profile.release]
+opt-level = 3

@@ -3,6 +3,7 @@ use std::ops::Deref;
 pub mod deref_coercion;
 pub mod deref_two;
 pub mod interior_mutability;
+pub mod ref_cycle;
 use std::rc::Rc;
 use std::cell::RefCell;
 
@@ -53,8 +54,6 @@ fn main() {
     };
 
     std::mem::drop(c);
-    println!("Custom pointers created");
-
     // ? -----------------------------------RC
 
     let val = Rc::new(RefCell::new(5));
@@ -65,10 +64,14 @@ fn main() {
 
 
 
-    *val.borrow_mut() += 10;
-    println!("a aftr = {:?}", a);
-    println!("b aftr = {:?}", b);
-    println!("c aftr = {:?}", c);
+    // *val.borrow_mut() += 10;
+    // println!("a aftr = {:?}", a);
+    // println!("b aftr = {:?}", b);
+    // println!("c aftr = {:?}", c);
+
+    // ref_cycle::main();
+    ref_cycle::tree();
+
 }
 
 
@@ -80,6 +83,6 @@ fn main() {
 
     impl Drop for CustomSmartPointer {
         fn drop (&mut self){
-            println!("Dropping custom smart pointer with data `{}`!", self.data);
+            // println!("Dropping custom smart pointer with data `{}`!", self.data);
         }
     }
