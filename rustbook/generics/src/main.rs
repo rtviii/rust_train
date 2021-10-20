@@ -5,7 +5,6 @@ pub mod generics;
 pub mod traitparameters;
 pub mod conditional_impls;
 pub mod lifetimes;
-
 use generics::noon;
 
 fn largest_i32(list : &[i32]) -> i32{
