@@ -31,20 +31,18 @@ impl Config{
             return Err("not enough arguments");
         }
 
-    let query    = args[1].clone();
-    let filename = args[2].clone();
+    let query          = args[1].clone();
+    let filename       = args[2].clone();
     let case_sensetive = env::var("CASE_INSENSITIVE").is_err();
 	println!("Case sensetive set ot {}",case_sensetive);
     Ok(Config{query,filename, case_sensetive})
     }
 }
 
-
-
-
-
 pub fn search<'a>(query:&str, contents:&'a str) ->Vec<&'a str>{
+
 	let mut results:Vec<&str> = Vec::new();
+
 	for line in contents.lines(){
 		if line.contains(query){
 			results.push(line);
@@ -54,9 +52,8 @@ pub fn search<'a>(query:&str, contents:&'a str) ->Vec<&'a str>{
 }
 
 pub fn search_case_insensetiv<'a>(query:&str, contents:&'a str) ->Vec<&'a str>{
-	let query = query.to_lowercase();
+	let query                 = query.to_lowercase();
 	let mut results:Vec<&str> = Vec::new();
-
 	for line in contents.lines(){
 		if line.to_lowercase().contains(&query){
 			results.push(line);
@@ -77,9 +74,7 @@ mod tests{
 				Pick three.";
 		assert_eq!(vec!["safe, fast, productive."], search(query,contents))
 		
-		
 	}
-
 	#[test]
 	fn case_insensitive(){
 		let query = "DUCK";
@@ -89,6 +84,6 @@ mod tests{
 DuCK ss
 						Pick three.";
 		assert_eq!(vec!["DUCK sh", "DuCK ss"], search_case_insensetiv(query,contents))
-
 	}
 }
+
