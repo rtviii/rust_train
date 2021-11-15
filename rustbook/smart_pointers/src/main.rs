@@ -30,6 +30,7 @@ impl <T> Deref for MyBox<T>{
 fn main() {
 
     // let list = Cons(1,Box::new(Cons(2,Box::new(Cons(3,Box::new(Nil))))));
+    let ss :[u128; 5] =[20;5];
 
     let y = 15;
     // let s = &y;
