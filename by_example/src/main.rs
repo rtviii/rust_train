@@ -20,14 +20,19 @@ impl Rectange {
     }
 }
 
+fn newfun()->u64{
+    2
+}
 
 
-fn main() {
+fn main(){
 
     let rec = Rectange{ x:2,y:4 };
     println!("Rect with widht {} and lenght {}", rec.x, rec.y);
     println!("corresponding area : {}", rec.area());
+
     
+
     let Rectange{
         x: square_width,
         y: square_height
@@ -35,7 +40,6 @@ fn main() {
 
 
     println!("create a square and destructured {} x {}", square_width, square_height)
-
 
 
     
