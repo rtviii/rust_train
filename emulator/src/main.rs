@@ -15,6 +15,7 @@ fn main() {
     println!("Bits : {:b}", tgt.to_bits());
 
     let bits = tgt.to_bits();
+    bits.
 
     println!("sign bit : {:b}", sign_bit(bits));
     println!("exp : {}", isolate_exp(bits));
@@ -32,7 +33,6 @@ fn isolate_exp(bits: u32) -> u32 {
 }
 
 fn isolate_mantissa(bits: u32)->f32{
-
     let mut mantissa: f32 = 1.0;
     for i in 0..23 {
         let mask = 1 << i;
